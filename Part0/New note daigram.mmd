@@ -1,0 +1,24 @@
+sequenceDiagram
+  actor Browser as Browser
+  actor Server as Server
+  
+
+  Browser ->>+ Server: POST https://studies.cs.helsinki.fi/exampleapp/new_note
+  Server ->>- Browser: HTTP 302 document/Redirect
+  Browser ->>+ Server: GET https://studies.cs.helsinki.fi/exampleapp/notes
+  Server ->> Browser: HTTP 200 html document
+  deactivate Server
+  Browser->>Server: GET https://studies.cs.helsinki.fi/exampleapp/main.css
+  activate Server
+  Server->> Browser: HTTP 200 css file
+  deactivate Server
+  Browser ->> Server: GET https://studies.cs.helsinki.fi/exampleapp/main.js
+  activate Server
+  Server ->> Browser: HTTP 200 js file
+  deactivate Server
+  Browser ->>Server:GET https://studies.cs.helsinki.fi/exampleapp/data.json
+  activate Server
+  Server ->>Browser: HTTP 200 json file (with new note)
+  deactivate Server
+
+

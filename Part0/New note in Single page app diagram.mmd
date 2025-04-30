@@ -1,0 +1,10 @@
+sequenceDiagram
+  actor Browser as Browser
+  actor Server as Server
+  
+
+  Browser ->>+ Server: POST https://studies.cs.helsinki.fi/exampleapp/new_note_spa
+  Server ->>- Browser: HTTP 201 Created
+  
+
+

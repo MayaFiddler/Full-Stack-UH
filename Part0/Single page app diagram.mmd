@@ -1,0 +1,21 @@
+sequenceDiagram
+  actor Browser as Browser
+  actor Server as Server
+  
+
+  Browser ->>+ Server: GET https://studies.cs.helsinki.fi/exampleapp/spa
+  Server ->>- Browser: HTTP 200
+  Browser ->>+ Server: GET https://studies.cs.helsinki.fi/exampleapp/main.css
+  Server ->> Browser: HTTP 200 html document
+  deactivate Server
+  Browser->>Server: GET https://studies.cs.helsinki.fi/exampleapp/spa.js
+  activate Server
+  Server->> Browser: HTTP 200 css file
+  deactivate Server
+  Browser ->> Server: GET https://studies.cs.helsinki.fi/exampleapp/data.json
+  activate Server
+  Server ->> Browser: HTTP 200 js file
+  deactivate Server
+ 
+
+
